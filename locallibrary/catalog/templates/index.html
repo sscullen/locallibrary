@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>DJANGO EXAMPLE PROJECT: LocalLibrary!</title>
+{% endblock %}
+
+{% block content %}
+<h1>Local Library Home</h1>
+<p>Welcome to LocalLibrary, a website developed by <em>Mozilla Developer Network</em>!</p>
+<h2>Dynamic content</h2>
+<p>The library has the following record counts:</p>
+<ul>
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+</ul>
+<ul>
+    <li><strong>Special Word of Today is:</strong> {{ special_word }}</li>
+    <li><strong>Books related to special word:</strong> {{ num_special_word_books }}</li>
+    <li><strong>Genres related to special word:</strong> {{ num_special_word_genre }}</li>
+</ul>
+{% if num_visits > 0 %}
+<p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %} previously.</p>
+{% else %}
+<p>This is your first time visiting this page.</p>
+{% endif %}
+
+{% endblock %}
